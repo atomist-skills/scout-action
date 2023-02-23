@@ -1,0 +1,34 @@
+name: Docker Scout action
+description: List vulnerabilities in images; find better base images and upload an image SBOM to Docker Scout
+author: docker
+branding:
+  icon: anchor
+  color: blue
+
+inputs:
+  image: 
+    description: 'Image'
+    required: true
+  user: 
+    description: 'Docker Hub User'
+    required: true
+  password: 
+    description: 'Docker Hub Password/PAT'
+    required: true
+  workspace: 
+    description: 'Workspace ID'
+    required: false
+runs:
+  using: docker
+  image: docker://docker/scout-cli:latest
+  env:
+    DOCKER_SCOUT_HUB_USER: ${{ inputs.user }}
+    DOCKER_SCOUT_HUB_PASSWORD: ${{ inputs.password }}
+    DOCKER_SCOUT_WORKSPACE_ID: ${{ inputs.workspace }}
+  args:
+    - cves
+    - ${{ inputs.image }}
+    - -o
+    - image.sarif.json
+    - -f
+    - sarif
