@@ -15,6 +15,12 @@ inputs:
   password: 
     description: 'Docker Hub Password/PAT'
     required: true
+  registry_user: 
+    description: 'Registry User'
+    required: false
+  registry_password: 
+    description: 'Registry Password'
+    required: false
   workspace: 
     description: 'Workspace ID'
     required: false
@@ -25,6 +31,8 @@ runs:
     DOCKER_SCOUT_HUB_USER: ${{ inputs.user }}
     DOCKER_SCOUT_HUB_PASSWORD: ${{ inputs.password }}
     DOCKER_SCOUT_WORKSPACE_ID: ${{ inputs.workspace }}
+    DOCKER_SCOUT_REGISTRY_USER: ${{ inputs.registry_user }}
+    DOCKER_SCOUT_REGISTRY_PASSWORD: ${{ inputs.registry_password }}
   args:
     - cves
     - ${{ inputs.image }}
