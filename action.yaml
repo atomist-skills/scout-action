@@ -30,5 +30,5 @@ runs:
     - ${{ inputs.image }}
     - -o
     - image.sarif.json
-    - -f
+    - --format
     - sarif
