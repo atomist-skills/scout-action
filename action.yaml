@@ -6,9 +6,16 @@ branding:
   color: blue
 
 inputs:
+  command:
+    description: 'Command to run'
+    required: true
+    default: 'cves'
   image: 
     description: 'Image'
-    required: true
+    required: false
+  args: 
+    description: 'Additional args passed to Docker Scout'
+    required: false
   user: 
     description: 'Docker Hub User'
     required: true
@@ -34,9 +41,6 @@ runs:
     DOCKER_SCOUT_REGISTRY_USER: ${{ inputs.registry_user }}
     DOCKER_SCOUT_REGISTRY_PASSWORD: ${{ inputs.registry_password }}
   args:
-    - cves
+    - ${{ inputs.command}}
     - ${{ inputs.image }}
-    - -o
-    - image.sarif.json
-    - --format
-    - sarif
+    - ${{ inputs.args }}
