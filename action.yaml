@@ -33,14 +33,14 @@ inputs:
     required: false
 runs:
   using: docker
-  image: docker://docker/scout-cli:8c63752
+  image: docker://docker/scout-cli:ff1ff86
   env:
     DOCKER_SCOUT_HUB_USER: ${{ inputs.user }}
     DOCKER_SCOUT_HUB_PASSWORD: ${{ inputs.password }}
     DOCKER_SCOUT_WORKSPACE_ID: ${{ inputs.workspace }}
     DOCKER_SCOUT_REGISTRY_USER: ${{ inputs.registry_user }}
     DOCKER_SCOUT_REGISTRY_PASSWORD: ${{ inputs.registry_password }}
+  entrypoint: /bin/sh
   args:
-    - ${{ inputs.command}}
-    - ${{ inputs.image }}
-    - ${{ inputs.args }}
+    - -c
+    - "${{ inputs.command}} ${{ inputs.image }} ${{ inputs.args }}"
