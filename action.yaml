@@ -7,29 +7,29 @@ branding:
 
 inputs:
   command:
-    description: 'Command to run'
+    description: "Command to run"
     required: true
-    default: 'cves'
-  image: 
-    description: 'Image'
+    default: "cves"
+  image:
+    description: "Image"
     required: false
-  args: 
-    description: 'Additional args passed to Docker Scout'
+  args:
+    description: "Additional args passed to Docker Scout"
     required: false
-  user: 
-    description: 'Docker Hub User'
+  user:
+    description: "Docker Hub User"
     required: true
-  password: 
-    description: 'Docker Hub Password/PAT'
+  password:
+    description: "Docker Hub Password/PAT"
     required: true
-  registry_user: 
-    description: 'Registry User'
+  registry_user:
+    description: "Registry User"
     required: false
-  registry_password: 
-    description: 'Registry Password'
+  registry_password:
+    description: "Registry Password"
     required: false
-  workspace: 
-    description: 'Workspace ID'
+  workspace:
+    description: "Workspace ID"
     required: false
 runs:
   using: docker
