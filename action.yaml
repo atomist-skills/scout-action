@@ -1,3 +1,4 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
 name: Docker Scout action
 description: List vulnerabilities in images; find better base images and upload an image SBOM to Docker Scout
 author: docker
@@ -43,4 +44,4 @@ runs:
   entrypoint: /bin/sh
   args:
     - -c
-    - "/docker-scout ${{ inputs.command}} ${{ inputs.image }} ${{ inputs.args }}"
+    - "/docker-scout ${{ inputs.command }} ${{ inputs.image }} ${{ inputs.args }}"
